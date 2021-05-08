@@ -1,1 +1,125 @@
-
+{
+  "definitions": {
+    "Criterion": {
+      "properties": {
+        "classification": {
+          "title": "",
+          "decription": "",
+          "$ref": "#/definitions/Classification"
+        },
+        "additionalClassifications": {
+          "title": "",
+          "decription": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Classification"
+          }
+        },
+        "legislation": {
+          "title": "",
+          "decription": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LegislationItem"
+          }
+        }
+      }
+    },
+    "Requirement": {
+      "properties": {
+        "status": {
+          "title": "",
+          "description": "",
+          "type": "string",
+          "codelist": "",
+          "openCodelist": false,
+          "enum": [
+            "active",
+            "withdrawn"
+          ]
+        },
+        "datePublished": {
+          "title": "",
+          "description": "",
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateModified": {
+          "title": "",
+          "description": "",
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "Classification": {
+      "title": "Classification",
+      "type": "object",
+      "properties": {
+        "scheme": {
+          "title": "Scheme",
+          "description": "Field is used to indicate the scheme/codelist from which the classification is drawn.",
+          "type": "string"
+        },
+        "id": {
+          "title": "ID",
+          "description": "The classification code drawn from the selected scheme.",
+          "type": [
+            "string",
+            "integer",
+            "null"
+          ]
+        },
+        "description": {
+          "title": "Description",
+          "description": "A textual description or title for the code.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "uri": {
+          "title": "URI",
+          "description": "A URI to identify the code. In the event individual URIs are not available for items in the identifier scheme this value should be left blank.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        }
+      }
+    },
+    "LegislationItem": {
+      "title": "",
+      "description": "",
+      "type": "onject",
+      "properties": {
+        "version": {
+          "title": "",
+          "description": "",
+          "type": "string"
+        },
+        "identifier": {
+          "title": "",
+          "description": "",
+          "$ref": "#/definitions/Classification"
+        },
+        "type": {
+          "title": "",
+          "description": "",
+          "type": "string",
+          "enum": [
+            "NATIONAL_LEGISLATION"
+          ],
+          "codelist": "",
+          "openCodelist": true
+        },
+        "article": {
+          "title": "",
+          "description": "",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
